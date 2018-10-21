@@ -23,8 +23,8 @@ GamePlayManager = {
 
         cuadroAzul = game.add.sprite(0,0,'cuadros');
         cuadroAzul.frame = 2;
-        cuadroAzul.x = 557.5;
-        cuadroAzul.y = 330;
+        cuadroAzul.x = 298;
+        cuadroAzul.y = 430;
         cuadroAzul.anchor.setTo(0,0);
         cuadroAzul.inputEnabled = true;
         cuadroAzul.events.onInputDown.add(this.comprobarPares, this);
@@ -32,8 +32,8 @@ GamePlayManager = {
 
         cuadroRojo = game.add.sprite(0,0,'cuadros');
         cuadroRojo.frame = 2;
-        cuadroRojo.x = 380;
-        cuadroRojo.y = 330;
+        cuadroRojo.x = 110;
+        cuadroRojo.y = 430;
         cuadroRojo.anchor.setTo(0,0);
         cuadroRojo.inputEnabled = true;
         cuadroRojo.events.onInputDown.add(this.comprobarParesRojos, this);
@@ -41,8 +41,8 @@ GamePlayManager = {
 
         this.cuadroAzul = game.add.sprite(0,0,'cuadros');
         this.cuadroAzul.frame = 2;
-        this.cuadroAzul.x = 380;
-        this.cuadroAzul.y = 169;
+        this.cuadroAzul.x = 110;
+        this.cuadroAzul.y = 220;
         this.cuadroAzul.anchor.setTo(0,0);
         this.cuadroAzul.inputEnabled = true;
         this.cuadroAzul.events.onInputDown.add(this.comprobarPares, this);
@@ -51,26 +51,26 @@ GamePlayManager = {
 
         this.cuadroRojo = game.add.sprite(0,0,'cuadros');
         this.cuadroRojo.frame = 2;
-        this.cuadroRojo.x = 557.5;
-        this.cuadroRojo.y = 169;
+        this.cuadroRojo.x = 298;
+        this.cuadroRojo.y = 220;
         this.cuadroRojo.anchor.setTo(0,0);
         this.cuadroRojo.inputEnabled = true;
         this.cuadroRojo.events.onInputDown.add(this.comprobarParesRojos, this);
         this.cuadroRojo.events.onInputDown.add(this.cambiarColor4, this);
 
         this.currentScore = 0;
-        this.scoreText = game.add.text(game.width/5.5, 42, '0');
-        game.add.text(game.width/11.5, 40, 'Puntos: ');
-        game.add.text(game.width/2.5, 590, 'Tiempo: ');
+        this.scoreText = game.add.text(game.width/3.5, 62, '0');
+        game.add.text(game.width/11.5, 60, 'Puntos: ');
+        game.add.text(game.width/2.5, 690, 'Tiempo: ');
 
         this.totalTime = 30;
-        this.timerText = game.add.text(game.width/2.0, 590, this.totalTime+'');
+        this.timerText = game.add.text(game.width/1.6, 690, this.totalTime+'');
         this.timerGameOver = game.time.events.loop(Phaser.Timer.SECOND,function(){
             console.log("timer");
             this.totalTime--;
             this.timerText.text = this.totalTime+'';
             if(this.totalTime<=0){
-                 this.showFinalMessage('Nivel Perdido')
+                 this.showFinalMessage('Nivel \n Perdido')
                  game.time.events.remove(this.timerGameOver);
                  this.endGame = true;
             }
@@ -168,7 +168,8 @@ GamePlayManager = {
         this.puntosGanar=this.currentScore;
 
         if(this.puntosGanar==20){
-            this.showFinalMessage('Nivel completado')
+            this.showFinalMessage('Nivel \n completado')
+            game.time.events.remove(this.timerGameOver);
             this.endGame=true;
         }
     },
@@ -199,7 +200,7 @@ GamePlayManager = {
     }
 }
 
-var game = new Phaser.Game(1136, 640, Phaser.CANVAS);
+var game = new Phaser.Game(500, 800, Phaser.CANVAS);
     
 game.state.add("gameplay", GamePlayManager);
 game.state.start("gameplay");
