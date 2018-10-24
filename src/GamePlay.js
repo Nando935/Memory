@@ -72,6 +72,10 @@ GamePlayManager = {
             if(this.totalTime<=0){
                  this.showFinalMessage('Nivel \n Perdido')
                  game.time.events.remove(this.timerGameOver);
+                 this.cuadroRojo.inputEnabled = false;
+                 cuadroRojo.inputEnabled = false;
+                 this.cuadroAzul.inputEnabled = false;
+                 cuadroAzul.inputEnabled = false;
                  this.endGame = true;
             }
         }, this);
