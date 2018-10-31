@@ -1,0 +1,69 @@
+{
+  "frames": {
+    "D1": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 28,
+        "h": 32
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 28,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 32
+      }
+    },
+    "D2": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 32,
+        "y": 2,
+        "w": 28,
+        "h": 32
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 28,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 32
+      }
+    },
+    "D4": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 62,
+        "y": 2,
+        "w": 28,
+        "h": 32
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 28,
+        "h": 32
+      },
+      "sourceSize": {
+        "w": 28,
+        "h": 32
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "personajeCaminandoDerecha.png"
+  }
+}

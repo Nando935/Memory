@@ -1,0 +1,69 @@
+{
+  "frames": {
+    "Button_46": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 176,
+        "h": 178
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 178
+      }
+    },
+    "Button_47": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 180,
+        "y": 2,
+        "w": 176,
+        "h": 178
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 178
+      }
+    },
+    "Button_48": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 358,
+        "y": 2,
+        "w": 176,
+        "h": 178
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 176,
+        "h": 178
+      },
+      "sourceSize": {
+        "w": 176,
+        "h": 178
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "butonMenu.png"
+  }
+}

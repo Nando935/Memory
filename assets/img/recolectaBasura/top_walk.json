@@ -1,0 +1,69 @@
+{
+  "frames": {
+    "dudeWutIsScratch_03": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 38,
+        "y": 3,
+        "w": 16,
+        "h": 25
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 25
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 25
+      }
+    },
+    "dudeWutIsScratch_07": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 2,
+        "y": 2,
+        "w": 16,
+        "h": 26
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 26
+      }
+    },
+    "dudeWutIsScratch_15": {
+      "trimmed": true,
+      "rotated": false,
+      "frame": {
+        "x": 20,
+        "y": 2,
+        "w": 16,
+        "h": 26
+      },
+      "spriteSourceSize": {
+        "x": 0,
+        "y": 0,
+        "w": 16,
+        "h": 26
+      },
+      "sourceSize": {
+        "w": 16,
+        "h": 26
+      }
+    }
+  },
+  "meta": {
+    "app": "Phaser Editor",
+    "version": "1",
+    "image": "top_walk.png"
+  }
+}
