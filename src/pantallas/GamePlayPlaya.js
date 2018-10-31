@@ -6,16 +6,32 @@ var timeUp=0;
 var tapar = 1;
 var click1=0;
 var click2=0;
-var cartaClickeada1Tipo;
+var cartaClickeada1;
 var cartaClickeada1nombre;
+var mismaCarta=0;
 //Arreglos
 var posiciones = {
     
     posXPosY: [
-        {x:window.innerWidth/3,y:window.innerHeight/2.5},
-        {x:window.innerWidth/3,y:window.innerHeight/1.5},
-        {x:window.innerWidth/1.5,y: window.innerHeight/1.5},
-        {x:window.innerWidth/1.5, y:window.innerHeight/2.5}
+        {x:window.innerWidth/4.0,y:window.innerHeight/4.5},/*Primera carta*/
+        {x:window.innerWidth/2.46, y:window.innerHeight/4.5},/*Segunda carta*/
+        {x:window.innerWidth/1.78,y: window.innerHeight/4.5},/*Tercera carta*/
+        {x:window.innerWidth/1.40,y:window.innerHeight/4.5},/*Cuarta carta*/
+        /*1.8 1.4 */
+        {x:window.innerWidth/4.0,y:window.innerHeight/2.6},
+        {x:window.innerWidth/2.46, y:window.innerHeight/2.6},
+        {x:window.innerWidth/1.78,y: window.innerHeight/2.6},
+        {x:window.innerWidth/1.40,y:window.innerHeight/2.6},
+
+        {x:window.innerWidth/4.0,y:window.innerHeight/1.8},
+        {x:window.innerWidth/2.46, y:window.innerHeight/1.8},
+        {x:window.innerWidth/1.78,y: window.innerHeight/1.8},
+        {x:window.innerWidth/1.40,y:window.innerHeight/1.8},
+
+        {x:window.innerWidth/4.0,y:window.innerHeight/1.4},
+        {x:window.innerWidth/2.46, y:window.innerHeight/1.4},
+        {x:window.innerWidth/1.78,y: window.innerHeight/1.4},
+        {x:window.innerWidth/1.40,y:window.innerHeight/1.4}
     ],
     
  }
@@ -32,8 +48,8 @@ GamePlayPlaya.prototype = {
         // this.endGame=false;
     },
     preload: function() {
-        game.load.image('background', 'assets/img/playa/images/fondo.png');
-        game.load.spritesheet('cuadros', 'assets/img/playa/images/cuadros.png', 184, 299);
+        game.load.image('background', 'assets/img/playa/images/fondo1.png');
+        game.load.spritesheet('cuadros1', 'assets/img/playa/images/cuadros1.png', 184, 299);
     },
     create: function() {
         var fondo = game.add.sprite(0, 0, 'background');
@@ -43,15 +59,15 @@ GamePlayPlaya.prototype = {
         this.cartas.inputEnableChildren = true;
    var numero=0;
 //    var indices={};
-   var tipo=[0,0,1,1];
+   var tipo=[0,0,1,1,2,2,3,3,4,4,5,5,6,6,7,7];
     do{
-        this.posicionCarta = Math.floor(Math.random() * (4 - 0)) + 0;
+        this.posicionCarta = Math.floor(Math.random() * (16 - 0)) + 0;
         // console.log(this.posicionCarta);
         if(posiciones.posXPosY[numero]!=null && tipo[this.posicionCarta]!=null){
             // console.log("x: "+posiciones.posXPosY[this.posicionCarta].x+" y: "+posiciones.posXPosY[this.posicionCarta].y);
-            this.carta = this.cartas.create(posiciones.posXPosY[numero].x, posiciones.posXPosY[numero].y, 'cuadros');
+            this.carta = this.cartas.create(posiciones.posXPosY[numero].x, posiciones.posXPosY[numero].y, 'cuadros1');
             this.carta.anchor.setTo(0.5);
-            this.carta.frame = 2;
+            this.carta.frame = 8;
             this.carta.bloqueo = false;
             this.carta.encontrada = false;
             this.carta.inputEnabled = true;
@@ -63,24 +79,24 @@ GamePlayPlaya.prototype = {
             numero++;
             // }
         }
-    }while(numero<4);
+    }while(numero<16);
 
     this.cartas.onChildInputDown.add(function onDown(sprite) {
         // console.log(sprite.tipo);
         // console.log(sprite.name);
-        sprite.loadTexture('cuadros', sprite.tipo, false);
+        sprite.loadTexture('cuadros1', sprite.tipo, false);
                 if(click1==0 && click2==0 && sprite.encontrada==false){
                 
                     click1=1;
+                    mismaCarta=sprite.name; 
                     console.log("primer Click: "+click1+"segundo Click: "+click2);
                     cartaClickeada1 = sprite.tipo;
                     cartaClickeada1nombre=sprite.name;
-                    sprite.bloqueo=true;
                 //    console.log( this.cartas);
                 }
-               else if(click1==1 && sprite.encontrada==false && !sprite.bloqueo){
+               else if(click1==1 /*&& click2==0*/ && sprite.encontrada==false && !sprite.bloqueo && mismaCarta!=sprite.name){
                    click2=1;
-                   console.log("primer Click: "+click1+" segundo Click: "+click2);
+                   console.log("primer aaClick: "+click1+" segundo aaClick: "+click2);
                 // console.log(this.volteada1.frame+" "+this.volteada2.frame);
                 if(cartaClickeada1 == sprite.tipo && sprite.encontrada==false){
                     this.increaseScore();
@@ -94,6 +110,7 @@ GamePlayPlaya.prototype = {
                     sprite.encontrada=true;
                     click1=0;
                     click2=0;
+                    
                  
                 }
                 else{
@@ -102,30 +119,30 @@ GamePlayPlaya.prototype = {
                         if(click1==1 && click2 == 1 &&  sprite.encontrada==false){
                             for(var i=0; i<this.cartas.length;i++){
                                 if(this.cartas.children[i].name == cartaClickeada1nombre){
-                                    this.cartas.children[i].frame =2;
-                                    
+                                    this.cartas.children[i].frame =8;
+                                    this.cartaClickeada1=null;/*Quiza sirva */
                                 }
                                }
-                               sprite.frame=2;
+                               sprite.frame=8;
                                     click1=0;
                                     click2=0;
                         }
-
+                        
                     }, this);
-
+                    
                   
                 }
                }
-
+               this.cartaClickeada1=null;
     }, this);
 
     this.currentScore = 0;
-    this.scoreText = game.add.text(window.innerWidth/2.5, 61, '0');
+    this.scoreText = game.add.text(window.innerWidth/4, 3, '0');
     
-  this.pintarPuntos=  game.add.text(window.innerWidth/11.5, 60, 'Puntos: ');
-   this.pintarTiempo= game.add.text(window.innerWidth/2.6, window.innerHeight-70, 'Tiempo: ');
-       this.totalTime = 30;
-        this.timerText = game.add.text(window.innerWidth/1.35, window.innerHeight -70, this.totalTime+'');
+  this.pintarPuntos=  game.add.text(window.innerWidth/50, 2, 'Pares: ');
+   this.pintarTiempo= game.add.text(window.innerWidth/3.2, window.innerHeight-80, 'Tiempo: ');
+       this.totalTime = 400;
+        this.timerText = game.add.text(window.innerWidth/1.6, window.innerHeight -80, this.totalTime+'');
         this.timerGameOver = game.time.events.loop(Phaser.Timer.SECOND,function(){
             console.log("timer");
             this.totalTime--;
@@ -146,19 +163,22 @@ GamePlayPlaya.prototype = {
 },
     pierdeTiempo:function(){
         this.totalTime-=10;
-        this.timerText.text = this.totalTime+'';
+        this.timerText.text = this.totalTime+''
+        if(this.totalTime<=0){
+            this.timerText.text = '0';
+        }
     
     },
 
     increaseScore:function(){
-        this.currentScore+=10;
+        this.currentScore+=1;
         this.scoreText.text = this.currentScore;
         // tapar=2;
         // this.reset();
         
         this.puntosGanar=this.currentScore;
 
-        if(this.puntosGanar==20){
+        if(this.puntosGanar==8){
             this.showFinalMessage('Nivel \n completado')
             game.time.events.remove(this.timerGameOver);
             this.timerText.visible=false;
